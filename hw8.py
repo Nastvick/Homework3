@@ -1,10 +1,13 @@
-import itertools
 
-def my_chain(c):
-    for i in my_chain:
-        yield (next(c))
 
-c = itertools.chain([1, 2, 3], [4, 5, 6], [7, '888', 9])
+def my_chain(*col):
+    for i in col:
+        for c in i:
+            yield c
 
-for i in range(9):
-    print(next(c))
+
+col = my_chain([1, 2, 3], [4, 5, 6], [7, '888', 9])
+
+for c in col:
+    print(c)
+
