@@ -18,12 +18,3 @@ while True:
         break
     else:
         input("TRY AGAIN\n")
-
-
-
-
-
-
-
-
-

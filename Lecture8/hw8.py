@@ -1,5 +1,3 @@
-
-
 def my_chain(*col):
     for i in col:
         for c in i:
