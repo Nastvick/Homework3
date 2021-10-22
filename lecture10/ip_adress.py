@@ -1,18 +1,4 @@
 import requests
 
-SYMBOL = 'IP'
-parameters = {
-    'symbol': SYMBOL,
-}
-
-headers = {
-    'Accepts': 'IPadress/json'
-}
-response = requests.get(
-    'https://httpbin.org/ip',
-    parameters = parameters,
-    headers = headers,
-)
-
-
-print(f'Current price of {SYMBOL} is {response}')
+response = requests.get('https://httpbin.org/ip').json()
+print(f'My IP adress is {response}')
