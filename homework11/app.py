@@ -51,7 +51,8 @@ def update_item(item_id):
     data = get_data()
     for i in range(len(data)):
         if data[i]["id"] == item_id:
-            data[i]["inventory"] = request.get_json()["inventory"]
+            data[i]["title"] = request.get_json()["title"]
+            data[i]["amount"] = request.get_json()["amount"]
             break
     else:
         return Response("Not found item", status=404)
