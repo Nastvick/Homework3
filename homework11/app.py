@@ -35,7 +35,7 @@ def create_item():
         mimetype='application/json'
     )
 
-@app.route('/int:item_id/', methods=['GET'])
+@app.route('/items/int:item_id/', methods=['GET'])
 def get_single_item(item_id):
     data = get_data()
     for i in range(len(data)):
@@ -43,7 +43,7 @@ def get_single_item(item_id):
             return Response(
                 json.dumps(data[i]),
                 mimetype='application/json',
-             )
+                )
     return Response ("Not found item", status=404)
 
 @app.route('/items/<int:item_id>/', methods=['PUT'])
@@ -53,9 +53,11 @@ def update_item(item_id):
         if data[i]["id"] == item_id:
             data[i]["title"] = request.get_json()["title"]
             data[i]["amount"] = request.get_json()["amount"]
+            store_data(data)
             break
     else:
         return Response("Not found item", status=404)
+
     return Response(status=200)
 
 @app.route('/items/<int:item_id>/', methods=['DELETE'])
@@ -64,7 +66,9 @@ def delete_item(item_id):
     for i in range(len(data)):
         if data[i]["id"] == item_id:
             del data[i]
+            store_data(data)
             return Response(status=204)
+
     return Response("Not found item", status=404)
 
 
