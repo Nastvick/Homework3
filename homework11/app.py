@@ -35,7 +35,7 @@ def create_item():
         mimetype='application/json'
     )
 
-@app.route('/items/int:item_id/', methods=['GET'])
+@app.route('/items/<int:item_id>/', methods=['GET'])
 def get_single_item(item_id):
     data = get_data()
     for i in range(len(data)):
