@@ -1,6 +1,6 @@
 def deco_adds_2(f):
-    def inner(a, b):
-        res = (a+b)+2
+    def inner(**args, **kwargs):
+        res = f(a, b)+2
         print('AFTER WITH RESULT', res)
         return res
     return inner
