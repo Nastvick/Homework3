@@ -185,7 +185,7 @@ def main(token):
     updater.start_polling()
     updater.idle()
 
-models.py
+
 if __name__ == '__main__':
     load_dotenv()
 
