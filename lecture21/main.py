@@ -8,6 +8,9 @@ with open('temperature.csv') as file:
     for row in csv_reader:
         rows.append(row)
 
+    country = input("Enter your country: ")
+    city = input("Enter your city: ")
+
     month = input("Enter month: ")
     day = input("Enter day: ")
     year = input("Enter year: ")
@@ -20,7 +23,7 @@ with open('temperature.csv') as file:
                 pass
 
     if t:
-        print(f"Average temperature in {month}, {day}, {year} is {sum(t) / len(t):.2f}")
+        print(f"Average temperature on {month}, {day}, {year} in {city}, {country} is {sum(t) / len(t):.2f}")
         print(f"Maximum temperature is {max(t):.2f} and minimum is {min(t):.2f}")
     else:
-        print(f"No data in this {month}, {day}, {year}")
+        print(f"No data on {month}, {day}, {year} in {city}, {country}")
