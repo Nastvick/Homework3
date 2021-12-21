@@ -27,3 +27,8 @@ with open('temperature.csv') as file:
         print(f"Maximum temperature is {max(t):.2f} and minimum is {min(t):.2f}")
     else:
         print(f"No data on {month}, {day}, {year} in {city}, {country}")
+
+writer = csv.writer(open("/c/Users/Nastya/PycharmProjects/home_work3/lecture21/my_results.csv", 'w'))
+for row in rows:
+    if row[row[0]] >= 6:
+        writer.writerow(row)
